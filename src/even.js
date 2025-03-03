@@ -1,24 +1,31 @@
 import readlineSync from 'readline-sync';
-import {name} from './cli.js'
+import { name } from './cli.js';
 
-const evenNumber = () => {
+export const evenNumber = () => {
   const min = 1;
   const max = 20;
-  let attemps = 3 
+  let attempts = 3;
   const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-  console.log(`Question: ${randomNum}`);
-  While (attempts > 0) {
-    const userAns = readlineSync.question(`Question: ${randomNum}`);
+
+  while (attempts > 0) {
+    console.log(`Question: ${randomNum}`);
+    const userAns = readlineSync.question('Is the number even?');
+
     if ((randomNum % 2 === 0 && userAns === 'yes') || (randomNum % 2 !== 0 && userAns === 'no')) {
       return 'Correct!';
     }
     if (randomNum % 2 === 0 && userAns === 'no') {
-      return `'no' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again, ${name}`;
+      return "'no' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again!";
     }
-    return `'yes' is wrong answer ;(. Correct answer was 'no'. \nLet's try again, ${name}`;
+    if (randomNum % 2 !== 0 && userAns === 'yes') {
+      return "'yes' is wrong answer ;(. Correct answer was 'no'. \nLet's try again!";
+    }
+
+    attempts -= 1;
+    if (attempts > 0) {
+      console.log(`You have ${attempts} attempts left.`);
+    }
   }
-  attemps -=1;
+
   return `Congradulation, ${name}!`;
 };
-
-export default evenNumber;
