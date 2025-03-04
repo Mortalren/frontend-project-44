@@ -1,41 +1,20 @@
-import readlineSync from 'readline-sync';
+import getRandomNumber from './utils.js/randomn.js';
+import randomOperation from './utils.js/operator.js';
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+const operators = ['+', '-', '*'];
+console.log('What is the result of the expression?');
 
-export const Calcular = () => {
-  const FirstN = getRandomInt(1, 200);
-  const SecondN = getRandomInt(1, 200);
-  const userAns = readlineSync.question('What is the result of the expression?');
-  let attempts = 3;
+const getRandomOperatorIndex = () => getRandomNumber(0, operators.length - 1);
 
-  const ops = ['+', '-', '*'];
-  const opIndex = Math.random() * 3;
-  const operator = ops[opindex];
-  let result;
-  switch (operator) {
-    case 0: result = FirstN + SecondN; break;
-    case 1: result = FirstN - SecondN; break;
-    case 2: result = FirstN * SecondN; break;
-  }
+const generateRandomExpression = () => {
+  const number1 = getRandomNumber();
+  const number2 = getRandomNumber();
+  const operator = operators[getRandomOperatorIndex()];
 
-  while (attempts > 0) {
-    console.log(`Question: ${result}`);
-    if (userAns === result) {
-      console.log(`Your answer: ${userAns}`);
-      return 'Correct!';
-    }
-    if (userAns !== result) {
-      return `${userAns} is wrong answer ;(. Correct answer was )`;
-    }
+  const question = `Question: ${number1} ${operator} ${number2}`;
+  const expectedAnswer = String(randomOperation(number1, number2, operator));
 
-    attempts -= 1;
-    if (attempts > 0) {
-      console.log(`You have ${attempts} attempts left.`);
-    }
-  }
-  return 'Congradulation!';
+  return { question, expectedAnswer };
 };
+
+export default generateRandomExpression;

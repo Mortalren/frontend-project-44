@@ -1,8 +1,5 @@
-import readlineSync from 'readline-sync';
+import { greetingMessage } from './cli.js';
 
-const greetingMessage = () => {
-const name = readlineSync.question('May I have your name? ');
+import { evenNumber } from './even.js';
 
-console.log(`Hi, ${name}`)
-}
-export { greetingMessage }
+import { generateRandomExpression } from './calc.js';
