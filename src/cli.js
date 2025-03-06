@@ -4,7 +4,5 @@ export const greetingMessage = () => {
   const name = readlineSync.question('May I have your name? ');
 
   console.log(`Hi, ${name}`);
+  return name;
 };
-
-export const name = readlineSync.question('May I have your name? ');
-

@@ -24,5 +24,4 @@ Let's try again!, ${name})`); break;
       break;
     }
   }
-}
-
+};

@@ -1,7 +1,6 @@
 import readlineSync from 'readline-sync';
-import { name } from './cli.js';
 
-export const evenNumber = () => {
+export const evenNumber = (name) => {
   const min = 1;
   const max = 20;
   let attempts = 3;
@@ -28,5 +27,4 @@ export const evenNumber = () => {
   }
 
   return `Congradulation, ${name}!`;
-}
-
+};
