@@ -6,7 +6,7 @@ console.log('What is the result of the expression?');
 
 const getRandomOperatorIndex = () => getRandomNumber(0, operators.length - 1);
 
-const generateRandomExpression = () => {
+export const generateRandomExpression = () => {
   const number1 = getRandomNumber();
   const number2 = getRandomNumber();
   const operator = operators[getRandomOperatorIndex()];
@@ -17,4 +17,4 @@ const generateRandomExpression = () => {
   return { question, expectedAnswer };
 };
 
-export default generateRandomExpression;
+
