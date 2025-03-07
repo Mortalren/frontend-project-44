@@ -8,8 +8,8 @@ const Prog = (length, firstTerm, difference) => {
 };
 
 export const progressionGame = (name) => {
-  let correctCount = 0;
-  while (correctCount < 3) {
+  let attemts = 0;
+  while (attemts < 3) {
     const minLength = 5;
     const maxLength = 10;
     const length = randomNum(minLength, maxLength);
@@ -26,13 +26,13 @@ export const progressionGame = (name) => {
 
     if (ans === hiddenValue.toString()) {
       console.log('Correct!');
-      correctCount += 1;
+      attemts += 1;
     } else {
       console.log(`${ans} is wrong answer ;(. Correct answer was ${hiddenValue}. Let's try again, ${name}!`);
       break;
     }
 
-    if (correctCount === 3) {
+    if (attemts === 3) {
       console.log(`Congratulations! ${name}!`);
     }
   }

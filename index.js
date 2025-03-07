@@ -8,6 +8,8 @@ import { getResultGcd } from './src/gcd.js';
 
 import { progressionGame } from './src/progression.js';
 
+import { GetPrime } from './src/prime.js';
+
 export {
   greetingMessage, evenNumber, generateRandomExpression, getResultGcd, progressionGame,
-};
+GetPrime };
