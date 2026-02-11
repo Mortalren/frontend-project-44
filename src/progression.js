@@ -1,5 +1,6 @@
-import readlineSync from 'readline-sync'
-import getRandomNumber from './utils.js/randomn.js'
+import readlineSync from 'readline-sync';
+import getRandomNumber from './utils.js/randomn.js';
+
 const Prog = (length, firstTerm, difference) => {
   const progression = [];
   for (let i = 0; i < length; i += 1) {
@@ -8,9 +9,9 @@ const Prog = (length, firstTerm, difference) => {
   return progression;
 };
 
-export const progressionGame = (name) => {
+const progressionGame = (name) => {
   console.log('What number is missing in the progression?');
-  
+
   let attemts = 0;
   while (attemts < 3) {
     const minLength = 5;
@@ -40,3 +41,4 @@ export const progressionGame = (name) => {
     }
   }
 };
+export default progressionGame;
