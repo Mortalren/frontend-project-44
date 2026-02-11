@@ -36,7 +36,7 @@ export const progressionGame = (name) => {
     }
 
     if (attemts === 3) {
-      console.log(`Congratulations! ${name}!`);
+      console.log(`Congratulations, ${name}!`);
     }
   }
 };
