@@ -1,3 +1,6 @@
+import readlineSync from 'readline-sync'
+import getRandomNumber from './utils.js/randomn.js'
+
 function gcd(a, b) {
   if (a === 0) { return b; }
   if (b === 0) { return a; }
@@ -8,8 +11,8 @@ function gcd(a, b) {
 export const getResultGcd = (name) => {
   let correctCount = 0;
   while (correctCount < 3) {
-    const random1 = randomNum(1, 100);
-    const random2 = randomNum(1, 100);
+    const random1 = getRandomNumber(1, 100);
+    const random2 = getRandomNumber(1, 100);
     const correct = gcd(random1, random2);
 
     console.log(`Question:${random1} ${random2}`);

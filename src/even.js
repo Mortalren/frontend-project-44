@@ -1,30 +1,35 @@
 import readlineSync from 'readline-sync';
 
 export const evenNumber = (name) => {
-  const min = 1;
-  const max = 20;
-  let attempts = 3;
-  const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
-
-  while (attempts > 0) {
+  console.log('Answer "yes" if the number is even, otherwise answer "no".')
+  
+  const questionsCount = 3
+  
+  for (let i = 0; i < questionsCount; i += 1) {
+    const min = 1;
+    const max = 100;
+    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+    
     console.log(`Question: ${randomNum}`);
-    const userAns = readlineSync.question('Is the number even?');
-
-    if ((randomNum % 2 === 0 && userAns === 'yes') || (randomNum % 2 !== 0 && userAns === 'no')) {
-      return 'Correct!';
+    const userAns = readlineSync.question('Your answer: ')
+    
+    const isEven = randomNum % 2 === 0;
+    const correctAnswer = isEven ? 'yes' : 'no'
+    
+    if (userAns !== 'yes' && userAns !== 'no') {
+      console.log(`'${userAns}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${name}!`)
+      return;
     }
-    if (randomNum % 2 === 0 && userAns === 'no') {
-      return "'no' is wrong answer ;(. Correct answer was 'yes'. \nLet's try again!";
-    }
-    if (randomNum % 2 !== 0 && userAns === 'yes') {
-      return "'yes' is wrong answer ;(. Correct answer was 'no'. \nLet's try again!";
-    }
-
-    attempts -= 1;
-    if (attempts > 0) {
-      console.log(`You have ${attempts} attempts left.`);
+    
+    if ((isEven && userAns === 'yes') || (!isEven && userAns === 'no')) {
+      console.log('Correct!')
+    } else {
+      console.log(`'${userAns}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
+      console.log(`Let's try again, ${name}!`)
+      return;
     }
   }
-
-  return `Congradulation, ${name}!`;
-};
+  
+  console.log(`Congratulations, ${name}!`)
+}

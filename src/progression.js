@@ -1,4 +1,5 @@
-import readlineSync from 'readline-sync';
+import readlineSync from 'readline-sync'
+import getRandomNumber from './utils.js/randomn.js'
 const Prog = (length, firstTerm, difference) => {
   const progression = [];
   for (let i = 0; i < length; i += 1) {
@@ -12,12 +13,12 @@ export const progressionGame = (name) => {
   while (attemts < 3) {
     const minLength = 5;
     const maxLength = 10;
-    const length = randomNum(minLength, maxLength);
+    const length = getRandomNumber(minLength, maxLength);
 
-    const firstTerm = randomNum(1, 10);
-    const difference = randomNum(1, 5);
+    const firstTerm = getRandomNumber(1, 10);
+    const difference = getRandomNumber(1, 5);
     const progression = Prog(length, firstTerm, difference);
-    const hiddenIndex = randomNum(0, length - 1);
+    const hiddenIndex = getRandomNumber(0, length - 1);
     const hiddenValue = progression[hiddenIndex];
     progression[hiddenIndex] = '..';
 

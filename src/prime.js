@@ -1,34 +1,40 @@
-import IsSimple from './utils.js/Simple.js'
 import getRandomNumber from './utils.js/randomn.js'
 import readlineSync from 'readline-sync'
 
-
-let attempts = 3
-
-const Correct = (ans, correctAns) => {
-    switch (ans) {
-     case correctAns:
-        console.log('Correct!') 
-        break
-     default:
-         console.log(`${ans} is wrong answer ;(. Correct answer was ${correct}.
- Let's try again!)`)
-     break
-    }
-}
+const isPrime = (num) => {
+  if (num < 2) return false;
+  for (let i = 2; i <= Math.sqrt(num); i += 1) {
+    if (num % i === 0) return false;
+  }
+  return true;
+};
 
 export const GetPrime = (name) => {
-while (attempts > 0) {
-    ques = getRandomNumber()
-    UserAns = readlineSync.question(`Question: ${ques}`)
-    CorrectAns = IsSimple(ques)
-    if (Correct(UserAns, CorrectAns) ){
-     attempts -= 1
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+  
+  const questionsCount = 3;
+  
+  for (let i = 0; i < questionsCount; i += 1) {
+    const question = getRandomNumber(1, 100);
+    const correctAnswer = isPrime(question) ? 'yes' : 'no';
+    
+    console.log(`Question: ${question}`);
+    const userAnswer = readlineSync.question('Your answer: ').toLowerCase();
+    
+    if (userAnswer !== 'yes' && userAnswer !== 'no') {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
-
-    if (attempts === 0) {
-        console.log('Congratulation!')
-        break
+    
+    if (userAnswer !== correctAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
-} 
+    
+    console.log('Correct!');
+  }
+  
+  console.log(`Congratulations, ${name}!`);
 }  
