@@ -9,6 +9,8 @@ const Prog = (length, firstTerm, difference) => {
 };
 
 export const progressionGame = (name) => {
+  console.log('What number is missing in the progression?');
+  
   let attemts = 0;
   while (attemts < 3) {
     const minLength = 5;

@@ -1,5 +1,6 @@
 import getRandomNumber from './utils.js/randomn.js';
 import randomOperation from './utils.js/operator.js';
+import readlineSync from 'readline-sync'
 
 export const generateRandomExpression = (name) => {
   console.log('What is the result of the expression?');

@@ -9,22 +9,25 @@ function gcd(a, b) {
 }
 
 export const getResultGcd = (name) => {
-  let correctCount = 0;
-  while (correctCount < 3) {
+  console.log('Find the greatest common divisor of given numbers.');
+    const questionsCount = 3;
+  
+  for (let i = 0; i < questionsCount; i += 1) {
     const random1 = getRandomNumber(1, 100);
     const random2 = getRandomNumber(1, 100);
     const correct = gcd(random1, random2);
-
-    console.log(`Question:${random1} ${random2}`);
-    const ans = parseFloat(readlineSync.question('Your answer:'));
-
-    if (ans === correct) { console.log('Correct!'); correctCount += 1; } else {
-      console.log(`${ans} is wrong answer ;(. Correct answer was ${correct}.
-Let's try again!, ${name})`); break;
-    }
-    if (correctCount === 3) {
-      console.log(`Congratulations! ${name}`);
-      break;
+    
+    console.log(`Question: ${random1} ${random2}`); 
+    const answer = readlineSync.question('Your answer: ');
+    
+    if (Number(answer) === correct) {
+      console.log('Correct!');
+    } else {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correct}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
   }
+  
+  console.log(`Congratulations, ${name}!`);
 };

@@ -9,7 +9,7 @@ const isPrime = (num) => {
   return true;
 };
 
-export const GetPrime = (name) => {
+export const getPrime = (name) => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   
   const questionsCount = 3;
