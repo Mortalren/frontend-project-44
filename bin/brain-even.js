@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { evenNumber, greetingMessage } from '../index.js';
+import { evenNumber, greetingMessage } from '../index.js'
 
-evenNumber(greetingMessage());
+evenNumber(greetingMessage())

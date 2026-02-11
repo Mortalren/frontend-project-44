@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { getPrime, greetingMessage } from '../index.js';
+import { getPrime, greetingMessage } from '../index.js'
 
-getPrime(greetingMessage());
+getPrime(greetingMessage())

@@ -1,14 +1,14 @@
 const randomOperation = (number1, number2, operator) => {
   switch (operator) {
     case '+':
-      return number1 + number2;
+      return number1 + number2
     case '-':
-      return number1 - number2;
+      return number1 - number2
     case '*':
-      return number1 * number2;
+      return number1 * number2
     default:
-      return false;
+      return false
   }
-};
+}
 
-export default randomOperation;
+export default randomOperation

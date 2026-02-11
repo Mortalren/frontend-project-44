@@ -1,11 +1,11 @@
-import globals from 'globals';
-import pluginJs from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
-import importPlugin from 'eslint-plugin-import';
+import globals from 'globals'
+import pluginJs from '@eslint/js'
+import { FlatCompat } from '@eslint/eslintrc'
+import importPlugin from 'eslint-plugin-import'
 
 const compat = new FlatCompat({
   recommendedConfig: pluginJs.configs.recommended,
-});
+})
 
 export default [
   {
@@ -34,6 +34,8 @@ export default [
       'import/no-named-as-default-member': 'off',
       'no-console': 'off',
       'import/no-extraneous-dependencies': 'off',
+      semi: ['error', 'never'],
+      'brace-style': ['error', 'stroustrup'],
     },
   },
-];
+]

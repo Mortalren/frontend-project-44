@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { getResultGcd, greetingMessage } from '../index.js';
+import { getResultGcd, greetingMessage } from '../index.js'
 
-getResultGcd(greetingMessage());
+getResultGcd(greetingMessage())
